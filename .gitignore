@@ -1,0 +1,11 @@
+# Godot 4 editor/import cache and generated data
+/.godot/
+
+# Local exports and build output
+/build/
+/dist/
+/*.pck
+
+# Local runtime mods; keep only the format example in version control
+/mods/*
+!/mods/README.md
