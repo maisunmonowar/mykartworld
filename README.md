@@ -19,8 +19,9 @@ Godot does not need to be on your `PATH` when launched this way. The project is 
 | Brake | S | Left trigger |
 | Steer left | A | Left stick or D-pad |
 | Steer right | D | Left stick or D-pad |
+| Charge drift | Space | Right bumper |
 
-Braking slows the sphere to a stop; reverse, drift, and boosts are not implemented yet. Gamepad bindings are configured but still need testing with a physical controller.
+Braking slows the sphere to a stop. Hold drift while moving to charge through Blue, Orange, and Purple; release does not boost yet. Reverse and boosts are not implemented. Gamepad bindings are configured but still need testing with a physical controller.
 
 ## Tune handling
 
@@ -32,8 +33,9 @@ Edit `configs/kart_handling.cfg` with a text editor, then restart the game to lo
 - A flat arena with visible, collidable boundaries.
 - A follow camera and a spherical placeholder racer.
 - Basic keyboard acceleration, braking, steering, and a speed cap.
+- Tiered drift charge with colored sparks, an on-screen tier indicator, and a rising tone.
 
-Handling values are loaded from `configs/kart_handling.cfg`. Edit the values there and restart the game to try a different feel; units are documented in the file. The next planned slice after input play-testing is drift charging.
+Handling and drift values are loaded from `configs/kart_handling.cfg`. Edit the values there and restart the game to try a different feel; units are documented in the file. The next planned slice is a tier-scaled boost on drift release.
 
 ## Project layout
 

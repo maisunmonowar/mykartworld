@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3]
+[gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://scripts/chase_camera.gd" id="1_chase_camera"]
 [ext_resource type="Script" path="res://scripts/kart_controller.gd" id="2_kart_controller"]
@@ -49,6 +49,19 @@ metallic = 0.05
 
 [sub_resource type="SphereShape3D" id="Shape_kart"]
 radius = 0.9
+
+[sub_resource type="SphereMesh" id="Mesh_drift_spark"]
+radius = 0.045
+height = 0.09
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="Material_drift_spark"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.2
 
 [node name="PracticeArena" type="Node3D"]
 
@@ -123,6 +136,27 @@ shape = SubResource("Shape_kart")
 mesh = SubResource("Mesh_racer")
 material_override = SubResource("Material_racer")
 
+[node name="DriftSparks" type="CPUParticles3D" parent="Kart"]
+position = Vector3(0, -0.25, 0.65)
+emitting = false
+amount = 10
+lifetime = 0.35
+local_coords = false
+direction = Vector3(0, 0.4, 1)
+spread = 28.0
+initial_velocity_min = 1.5
+initial_velocity_max = 2.5
+gravity = Vector3(0, -4, 0)
+scale_amount_min = 0.05
+scale_amount_max = 0.12
+color = Color(0.2, 0.65, 1, 1)
+draw_pass_1 = SubResource("Mesh_drift_spark")
+material_override = SubResource("Material_drift_spark")
+
+[node name="DriftTone" type="AudioStreamPlayer3D" parent="Kart"]
+volume_db = -24.0
+unit_size = 8.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
 position = Vector3(0, 18, 28)
 rotation_degrees = Vector3(-31, 0, 0)
@@ -133,3 +167,18 @@ follow_height = 18.0
 follow_distance = 28.0
 look_height = 0.9
 smoothing_speed = 5.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="Camera3D"]
+current = true
+
+[node name="DriftHUD" type="CanvasLayer" parent="."]
+
+[node name="Status" type="Label" parent="DriftHUD"]
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 520.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.82, 0.9, 0.94, 1)
+theme_override_font_sizes/font_size = 22
+text = "HOLD SPACE / RB WHILE MOVING TO DRIFT"
+mouse_filter = 2

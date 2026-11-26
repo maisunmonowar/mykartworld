@@ -49,6 +49,13 @@ Object(InputEventJoypadMotion, "axis": 0, "axis_value": 1.0),
 Object(InputEventJoypadButton, "button_index": 14)
 ]
 }
+drift={
+"deadzone": 0.2,
+"events": [
+Object(InputEventKey, "physical_keycode": 32),
+Object(InputEventJoypadButton, "button_index": 10)
+]
+}
 
 [rendering]
 
