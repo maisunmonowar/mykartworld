@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_main_menu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shell"]
+bg_color = Color(0.075, 0.14, 0.2, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.18, 0.36, 0.4, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0, 0, 0, 0.22)
+shadow_size = 18
+shadow_offset = Vector2(0, 8)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.035, 0.07, 0.12, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(760, 390)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_shell")
+
+[node name="Margin" type="MarginContainer" parent="Center/Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 56
+theme_override_constants/margin_top = 46
+theme_override_constants/margin_right = 56
+theme_override_constants/margin_bottom = 46
+
+[node name="Content" type="VBoxContainer" parent="Center/Card/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Eyebrow" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.48, 0.87, 0.78, 1)
+theme_override_font_sizes/font_size = 14
+text = "OFFLINE-FIRST KART-RACING PLAYGROUND"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.98, 0.94, 1)
+theme_override_font_sizes/font_size = 46
+text = "MY KART WORLD"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.81, 0.83, 1)
+theme_override_font_sizes/font_size = 20
+text = "Fast, playful racing built around local fun."
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+
+[node name="Status" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.78, 0.37, 1)
+theme_override_font_sizes/font_size = 16
+text = "THE COUCH DEMO IS GETTING STARTED"
+horizontal_alignment = 1
+
+[node name="PracticeButton" type="Button" parent="Center/Card/Margin/Content"]
+custom_minimum_size = Vector2(260, 52)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "ENTER PRACTICE ARENA"
+
+[node name="Description" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.88, 0.88, 1)
+theme_override_font_sizes/font_size = 17
+text = "Next up: a practice arena, satisfying kart handling, and local two-player play."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Footer" type="Label" parent="Center/Card/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.68, 0.72, 1)
+theme_override_font_sizes/font_size = 14
+text = "No account. No internet required. Just local play."
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Center/Card/Margin/Content/PracticeButton" to="." method="_on_practice_button_pressed"]
