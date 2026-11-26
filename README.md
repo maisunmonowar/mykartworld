@@ -13,14 +13,14 @@ Godot does not need to be on your `PATH` when launched this way. The project is 
 
 ## Current controls
 
-| Action | Key |
-| --- | --- |
-| Accelerate | W |
-| Brake | S |
-| Steer left | A |
-| Steer right | D |
+| Action | Keyboard | Gamepad |
+| --- | --- | --- |
+| Accelerate | W | Right trigger |
+| Brake | S | Left trigger |
+| Steer left | A | Left stick or D-pad |
+| Steer right | D | Left stick or D-pad |
 
-Braking slows the sphere to a stop; reverse, gamepad input, drift, and boosts are not implemented yet.
+Braking slows the sphere to a stop; reverse, drift, and boosts are not implemented yet. Gamepad bindings are configured but still need testing with a physical controller.
 
 ## Tune handling
 
@@ -33,7 +33,7 @@ Edit `configs/kart_handling.cfg` with a text editor, then restart the game to lo
 - A follow camera and a spherical placeholder racer.
 - Basic keyboard acceleration, braking, steering, and a speed cap.
 
-Handling values are loaded from `configs/kart_handling.cfg`. Edit the values there and restart the game to try a different feel; units are documented in the file. The next planned work is to play-test the tuning, then add gamepad support.
+Handling values are loaded from `configs/kart_handling.cfg`. Edit the values there and restart the game to try a different feel; units are documented in the file. The next planned slice after input play-testing is drift charging.
 
 ## Project layout
 
